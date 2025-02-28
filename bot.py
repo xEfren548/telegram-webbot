@@ -14,7 +14,7 @@ load_dotenv()
 api_id = os.getenv('API_ID')
 api_hash = os.getenv('API_HASH')
 phone_number  = os.getenv('PHONE_NUMBER')
-channel = os.getenv('CHANNEL', cast=int)
+channel = -1001186547457
 webhook_url = os.getenv('WEBHOOK_URL') # URL del servidor Node.js
 
 client = TelegramClient("session", api_id, api_hash)
