@@ -21,7 +21,8 @@ def home():
 api_id = os.getenv('API_ID')
 api_hash = os.getenv('API_HASH')
 phone_number  = os.getenv('PHONE_NUMBER')
-channel = -1001186547457
+# channel = -1001186547457 #kaelus
+channel = -1002465703891 #test
 webhook_url = os.getenv('WEBHOOK_URL') # URL del servidor Node.js
 
 client = TelegramClient("session", api_id, api_hash)
