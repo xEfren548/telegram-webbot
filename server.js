@@ -3,8 +3,10 @@ const bodyParser = require("body-parser");
 const moment = require("moment");
 const momentTz = require("moment-timezone");
 
+require("dotenv").config();
+
 const app = express();
-const PORT = 4005;
+const PORT = process.env.PORT || 4005;
 
 // Middleware para parsear el cuerpo de las solicitudes JSON
 app.use(bodyParser.json());
