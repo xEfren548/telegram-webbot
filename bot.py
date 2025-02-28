@@ -5,9 +5,16 @@ from datetime import datetime, timedelta
 import pytz  # Para manejar zonas horarias
 from dotenv import load_dotenv
 import os
+from flask import Flask
+from waitress import serve
+
 load_dotenv()
 
+app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Bot de Telegram en funcionamiento"
 
 
 # Configuración
@@ -53,7 +60,14 @@ async def main():
 
     await client.run_until_disconnected()
 
-asyncio.run(main())
+# Iniciar Flask en un puerto
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 3000))  # Usar el puerto de Render o 3000 por defecto
+    print(f"Escuchando en el puerto {port}")
+    serve(app, host="0.0.0.0", port=port)
+
+    # Iniciar el bot de Telegram
+    asyncio.run(main())
 
 
 ''' Obtener mensajes anteriores '''
